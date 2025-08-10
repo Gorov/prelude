@@ -96,35 +96,39 @@
           >
           <span class="author-block"
             >Jiangnan Li
-            <sup>3=</sup></span
+            <sup>1=</sup></span
           >
           <span class="author-block"
             >Liyan Xu
-            <sup>3=</sup></span
+            <sup>1=</sup></span
           >
         </div>
         <div class="author-list">
           <span class="author-block"
-            ><a href="https://openreview.net/profile?id=~Jiangnan_Li2"
-              >Jiangnan Li</a
-            ><sup>1</sup></span
+            >Haoshu Lu
+            <sup>4</sup></span
           >
           <span class="author-block"
-            ><a href="https://sites.google.com/view/dyyeung">Dit-Yan Yeung</a
-            ><sup>2</sup></span
+            >Ning Zhang
+            <sup>1</sup></span
           >
           <span class="author-block"
-            ><a href="https://openreview.net/profile?id=~Jie_Zhou8">Jie Zhou</a
-            ><sup>1</sup></span
+            >Jing Li
+            <sup>4</sup></span
+          >
+          <span class="author-block"
+            >Jie Zhou
+            <sup>1</sup></span
           >
         </div>
         <div class="inst-list">
           <span class="institution-block"><sup>1</sup> WeChat AI</span>
           <span class="institution-block"><sup>2</sup> HKUST</span>
-          <span class="institution-block"><sup>3</sup> JHU</span>
+          <span class="institution-block"><sup>3</sup> CUHK</span>
+          <span class="institution-block"><sup>3</sup> NJIT</span>
         </div>
         <div class="note-block"><sup>=</sup> equal contribution</div>
-        <div class="venue-block">NAACL 2025 - Oral Presentation</div>
+        <div class="venue-block">Spoiler alert: We show it is possible to measure <i>Fluid Intelligence</i> in natural language space.</div>
       </div>
     </div>
 
@@ -132,13 +136,9 @@
       <center>
         <img src="./img/teaser.png" />
         <figcaption>
-          Illustration of a "Stochastic Parrot 🦜" by our
-          <span class="dataset-name">PhysiCo</span> task consisting of both
-          <b style="color: #a47b48">low-level</b> and
-          <b style="color: #153cf9">high-level</b> subtasks in parallel. For a
-          concept <i>Gravity</i>, an LLM can generate its accurate description
-          in natural language, but cannot interpret its grid-format
-          illustration.
+          Illustration of two examples from by our
+          <span class="dataset-name">PRELUDE</span> task 
+          that are <i>Consistent</i> and <i>Contradict</i> to the canonical book, respectively.
         </figcaption>
       </center>
     </div>
@@ -152,16 +152,12 @@
         <b>TL;DR:</b>
       </p> -->
       <p>
-        In a systematic way, we investigate a widely asked question:
-        <i>Do LLMs really understand what they say?</i>, which relates to the
-        more familiar term <i>Stochastic Parrot</i>. To this end, we propose a
-        summative assessment over a carefully designed physical concept
-        understanding task, <span class="dataset-name">PhysiCo</span>. Our task
-        alleviates the memorization issue via the usage of grid-format inputs
-        that abstractly describe physical phenomena. The grids represents
-        varying levels of understanding, from the core phenomenon, application
-        examples to analogies to other abstract patterns in the grid world. A
-        comprehensive study on our task demonstrates that:
+	We introduce PRELUDE, a benchmark for evaluating long-context understanding through the task of determining whether a character's prequel story is consistent with the canonical narrative of the original book.
+	Our task poses a stronger demand for global comprehension and deep reasoning than existing benchmarks -- as the prequels are not part of the original story, assessing their plausibility typically requires searching and integrating information that is only indirectly related. Empirically, 88% of instances require evidence from multiple parts of the narrative.
+
+	Experimental results highlight the challenge of our task: in-context learning, RAG and in-domain training with state-of-the-art LLMs, and commercial DeepResearch services, lag behind humans by >15%. 
+	A further human study reveals that models often produce correct answers with flawed reasoning, leading to an over 30% gap in reasoning accuracy compared to humans.
+	These findings underscore the substantial room for improvement in long-context understanding and reasoning. 
       </p>
       <ol>
         <li>
@@ -186,130 +182,8 @@
       </ol>
     </div>
 
-    <!-- ^ Physical Concepts Covered by `PhysiCo` -->
-    <center>
-      <h1>
-        Physical Concepts Covered by <span class="dataset-name">PhysiCo</span>
-      </h1>
-    </center>
-    <div class="content narrower">
-      <p>
-        <strong>Core-Dev Set.</strong>&ensp;<span style="font-size: smaller">
-          <span style="color: #aaa">acceleration</span>
-          <span style="color: #777">buoyancy</span>
-          <span style="color: #aaa">communicating vessels</span>
-          <span style="color: #777">compression</span>
-          <span style="color: #aaa">cut</span>
-          <span style="color: #777">diffraction of waves</span>
-          <span style="color: #aaa">diffuse reflection of light</span>
-          <span style="color: #777">diffusion</span>
-          <span style="color: #aaa">electricity</span>
-          <span style="color: #777">expansion</span>
-          <span style="color: #aaa">gravity</span>
-          <span style="color: #777">inertia</span>
-          <span style="color: #aaa">laser</span>
-          <span style="color: #777">lever</span>
-          <span style="color: #aaa">light imaging</span>
-          <span style="color: #777">move</span>
-          <span style="color: #aaa">nuclear fission</span>
-          <span style="color: #777">nuclear fusion</span>
-          <span style="color: #aaa">reference frame</span>
-          <span style="color: #777">reflection</span>
-          <span style="color: #aaa">refraction</span>
-          <span style="color: #777">repulsive force</span>
-          <span style="color: #aaa">spectrum of light and optical filters</span>
-          <span style="color: #777">surface tension</span>
-          <span style="color: #aaa">vortex</span>
-          <span style="color: #777">wave</span>
-          <span style="color: #aaa">wave interference</span>
-          <a
-            target="_blank"
-            href="https://huggingface.co/datasets/ShunchiZhang/PhysiCo/viewer/core/dev"
-            ><img
-              style="vertical-align: middle"
-              src="https://img.shields.io/badge/Core--Dev Set-View-yellow?labelColor=lightgray&logo=huggingface&style=social" /><img /></a
-        ></span>
-      </p>
-      <p>
-        <strong>Core-Test Set.</strong>&ensp;<span style="font-size: smaller">
-          <span style="color: #aaa">Bernoulli effect</span>
-          <span style="color: #777">Brownian motion</span>
-          <span style="color: #aaa">atmospheric pressure</span>
-          <span style="color: #777">doppler effect</span>
-          <span style="color: #aaa">elastic force</span>
-          <span style="color: #777">electromagnetic wave</span>
-          <span style="color: #aaa">energy conservation</span>
-          <span style="color: #777">fictitious force</span>
-          <span style="color: #aaa">fluid pressure</span>
-          <span style="color: #777">force composition</span>
-          <span style="color: #aaa">friction</span>
-          <span style="color: #777">heat conduction</span>
-          <span style="color: #aaa">inclined plane</span>
-          <span style="color: #777">lifting</span>
-          <span style="color: #aaa">lighting</span>
-          <span style="color: #777">melting</span>
-          <span style="color: #aaa">oscillation</span>
-          <span style="color: #777">photoelectric effect</span>
-          <span style="color: #aaa">pulley</span>
-          <span style="color: #777">relativity</span>
-          <span style="color: #aaa">resonance</span>
-          <span style="color: #777">siphon</span>
-          <span style="color: #aaa">splashing</span>
-          <span style="color: #777">thermal expansion and contraction</span>
-          <span style="color: #aaa">vaporization</span>
-          <a
-            target="_blank"
-            href="https://huggingface.co/datasets/ShunchiZhang/PhysiCo/viewer/core/test"
-            ><img
-              style="vertical-align: middle"
-              src="https://img.shields.io/badge/Core--Test Set-View-yellow?labelColor=lightgray&logo=huggingface&style=social" /><img /></a
-        ></span>
-      </p>
-      <p>
-        <strong>Associative-Test Set.</strong>&ensp;<span
-          style="font-size: smaller"
-        >
-          <span style="color: #aaa">change of reference frame</span>
-          <span style="color: #777">chemical bond</span>
-          <span style="color: #aaa">compression</span>
-          <span style="color: #777">diffusion</span>
-          <span style="color: #aaa">expansion</span>
-          <span style="color: #777">explosion</span>
-          <span style="color: #aaa">gravity</span>
-          <span style="color: #777">laser</span>
-          <span style="color: #aaa">long exposure</span>
-          <span style="color: #777">lumination</span>
-          <span style="color: #aaa">magnet</span>
-          <span style="color: #777">mirror</span>
-          <span style="color: #aaa">move</span>
-          <span style="color: #777">nuclear fission</span>
-          <span style="color: #aaa">nuclear fusion</span>
-          <span style="color: #777">optical filter</span>
-          <span style="color: #aaa">polarization of light</span>
-          <span style="color: #777">projection</span>
-          <span style="color: #aaa">reflection</span>
-          <span style="color: #777">rotation</span>
-          <span style="color: #aaa">squeeze</span>
-          <span style="color: #777">vacuum</span>
-          <span style="color: #aaa">vortex</span>
-          <span style="color: #777">water ripples</span>
-          <span style="color: #aaa">wave</span>
-          <span style="color: #777">wave interference</span>
-          <span style="color: #aaa">wetting</span>
-          <span style="color: #777">zoom in</span>
-          <span style="color: #aaa">zoom out</span>
-          <a
-            target="_blank"
-            href="https://huggingface.co/datasets/ShunchiZhang/PhysiCo/viewer/associative/test"
-            ><img
-              style="vertical-align: middle"
-              src="https://img.shields.io/badge/Associative--Test Set-View-yellow?labelColor=lightgray&logo=huggingface&style=social" /><img /></a
-        ></span>
-      </p>
-    </div>
-
-    <!-- ^ Our Studies and Findings -->
-    <center><h1>Our Studies and Findings</h1></center>
+    <!-- ^ Comparison -->
+    <center><h1>Comparison to Existing Story Understanding Benchmarks</h1></center>
     <div class="content">
       <!-- <p>Foo Bar</p> -->
       <center>
