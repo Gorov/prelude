@@ -187,11 +187,32 @@
     <div class="content">
       <!-- <p>Foo Bar</p> -->
       <center>
-        <img src="./img/rq.png" width="70%" />
+        <img src="./img/benchmark_comparison.png" width="70%" />
         <!-- <figcaption style="text-align: center">
-          6 Research Questions (RQs) and 3 Hypotheses
+          Comparison of existing benchmarks along the different criteria for long context understanding assessment. We report the normalized measure along each criterion.
         </figcaption> -->
       </center>
+      <p>
+	We compare our PRELUDE with existing popular benchmarks on the following essential criteria for long-context understanding and reasoning.
+      </p>
+      <ol>
+        <li>
+          <b>Beyond Memorization:</b> LLMs memorize content from pretraining, especially for popular texts, enabling answers without true comprehension. As a <i>Necessity Condition</i>, a robust benchmark must prevent solutions based on memorization alone, ensuring full-context reasoning remains essential.
+        </li>
+        <li>
+          <b>Global Dependency:</b> The task should require aggregating evidence scattered across the context or exhibiting global dependencies; otherwise, it reduces to a short-context problem focused on retrieval rather than true long-text understanding.
+        </li>
+        <li>
+          <b>Depth of Reasoning:</b> Long-context reasoning should inherently require synthesizing multiple pieces of evidence and multi-step deduction, instaed of shallow reasoning, such as decomposition or enumeration. 
+        </li>
+        <li>
+          <b>Human-Machine Gap:</b> To highlight essential capabilities that general-purpose intelligent systems should possess,
+a benchmark should show a significant gap between humans and machines.
+        </li>
+        <li>
+          <b>Beyond Summarization/Salience:</b> A strong benchmark should require attention to fine-grained details beyond high-level abstraction to remain challenging and meaningful. Otherwise, it risks reducing to a summarization task that is solvable without long-context understanding.
+        </li>
+      </ol>
     </div>
   </body>
 </html>
