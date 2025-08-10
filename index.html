@@ -5,7 +5,7 @@
     </title>
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2232%22>🦜</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text y=%2226%22 font-size=%2232%22>📝</text></svg>"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -154,6 +154,7 @@
       <p>
 	We introduce PRELUDE, a benchmark for evaluating long-context understanding through the task of determining whether a character's prequel story is consistent with the canonical narrative of the original book.
 	Our task poses a stronger demand for global comprehension and deep reasoning than existing benchmarks -- as the prequels are not part of the original story, assessing their plausibility typically requires searching and integrating information that is only indirectly related. Empirically, 88% of instances require evidence from multiple parts of the narrative.
+	A comprehensive study on our task demonstrates that:
 
 	Experimental results highlight the challenge of our task: in-context learning, RAG and in-domain training with state-of-the-art LLMs, and commercial DeepResearch services, lag behind humans by >15%. 
 	A further human study reveals that models often produce correct answers with flawed reasoning, leading to an over 30% gap in reasoning accuracy compared to humans.
@@ -161,37 +162,34 @@
       </p>
       <ol>
         <li>
-          state-of-the-art LLMs, including GPT-4o, o1 and Gemini 2.0 flash
-          thinking, lag behind humans by ~40%;
-          <a href="./leaderboard.html"
-            ><img
-              style="vertical-align: middle"
-              src="https://img.shields.io/badge/Leaderboard-Visit-blue?labelColor=lightgray&logo=stackblitz&logoColor=367BAF&style=social" /><img
-          /></a>
+          In-context learning, RAG and in-domain training with state-of-the-art LLMs, and commercial DeepResearch services, lag behind humans by >15%;
         </li>
         <li>
-          the stochastic parrot phenomenon is present in LLMs, as they fail on
-          our grid task but can describe and recognize the same concepts well in
-          natural language;
+          Models often produce correct answers with flawed reasoning, leading to an over 30% gap in reasoning accuracy compared to humans;
         </li>
         <li>
-          our task challenges the LLMs due to intrinsic difficulties rather than
-          the unfamiliar grid format, as in-context learning and fine-tuning on
-          same formatted data added little to their performance.
+          Recent improvements in LLMs' general reasoning capabilities do not necessarily lead to better long-context reasoning, with a notable performance drop when context is provided;
+        </li>
+        <li>
+	  Combined with the observation that DeepResearch performs poorly on our task, it shows that the task cannot be solved simply by retrieving existing information from the web. Instead, it requires generating new knowledge through reasoning based on learned rules.
         </li>
       </ol>
+    </div>
+
+    <center><h1>Definitions of Our Annotation Labels</h1></center>
+    <div class="content">
+      <center>
+        <img src="./img/definitions.png" width="70%" />
+        <!-- <figcaption style="text-align: center">
+          We refine the labels of <i>Consistent</i> and <i>Contradict</i> with the five cases to ease human annotation. 
+        </figcaption> -->
+      </center>
     </div>
 
     <!-- ^ Comparison -->
     <center><h1>Comparison to Existing Story Understanding Benchmarks</h1></center>
     <div class="content">
       <!-- <p>Foo Bar</p> -->
-      <center>
-        <img src="./img/benchmark_comparison.png" width="70%" />
-        <!-- <figcaption style="text-align: center">
-          Comparison of existing benchmarks along the different criteria for long context understanding assessment. We report the normalized measure along each criterion.
-        </figcaption> -->
-      </center>
       <p>
 	We compare our PRELUDE with existing popular benchmarks on the following essential criteria for long-context understanding and reasoning.
       </p>
@@ -213,6 +211,12 @@ a benchmark should show a significant gap between humans and machines.
           <b>Beyond Summarization/Salience:</b> A strong benchmark should require attention to fine-grained details beyond high-level abstraction to remain challenging and meaningful. Otherwise, it risks reducing to a summarization task that is solvable without long-context understanding.
         </li>
       </ol>
+      <center>
+        <img src="./img/benchmark_comparison.png" width="70%" />
+        <!-- <figcaption style="text-align: center">
+          Comparison of existing benchmarks along the different criteria for long context understanding assessment. We report the normalized measure along each criterion.
+        </figcaption> -->
+      </center>
     </div>
   </body>
 </html>
