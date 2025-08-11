@@ -1,8 +1,7 @@
 <html>
   <head>
     <title>
-      The Stochastic Parrot on LLM's Shoulder: A Summative Assessment of
-      Physical Concept Understanding
+      PRELUDE: A Benchmark Designed to Require Global Comprehension and Reasoning over Long Contexts
     </title>
     <link
       rel="icon"
@@ -18,10 +17,10 @@
   <body>
     <div class="header">
       <div class="paper-title">
-        <a href="./index.html"
-          >🦜 <i>The Stochastic Parrot on LLM's Shoulder:</i>
+        <a href="#"
+          >
           <br />
-          A Summative Assessment of Physical Concept Understanding</a
+	  <span class="dataset-name">PRELUDE</span>: A Benchmark Designed to Require Global Comprehension and Reasoning over Long Contexts</a
         >
       </div>
       <div>
@@ -81,42 +80,53 @@
             ><sup>1=</sup></span
           >
           <span class="author-block"
-            ><a href="https://lemaoliu.github.io/">Lemao Liu</a
-            ><sup>1=</sup></span
-          >
-          <span class="author-block"
-            ><a href="https://wujunjie1998.github.io/">Junjie Wu</a
+            ><a href="https://ttchungc.github.io/">Tsz Ting Chung</a
             ><sup>2=</sup></span
           >
           <span class="author-block"
-            ><a href="https://www.linkedin.com/in/tsz-ting-chung-5a47aa174"
-              >Tsz Ting Chung</a
-            ><sup>2=</sup></span
+            >Chulun Zhou
+            <sup>3=</sup></span
           >
           <span class="author-block"
-            ><a href="https://shunchizhang.github.io">Shunchi Zhang</a
-            ><sup>3=</sup></span
+            >Tong Li
+            <sup>3=</sup></span
+          >
+          <span class="author-block"
+            >Rui Lu
+            <sup>3=</sup></span
+          > 
+          <span class="author-block"
+            >Jiangnan Li
+            <sup>1=</sup></span
+          >
+          <span class="author-block"
+            >Liyan Xu
+            <sup>1=</sup></span
           >
         </div>
         <div class="author-list">
           <span class="author-block"
-            ><a href="https://openreview.net/profile?id=~Jiangnan_Li2"
-              >Jiangnan Li</a
-            ><sup>1</sup></span
+            >Haoshu Lu
+            <sup>4</sup></span
           >
           <span class="author-block"
-            ><a href="https://sites.google.com/view/dyyeung">Dit-Yan Yeung</a
-            ><sup>2</sup></span
+            >Ning Zhang
+            <sup>1</sup></span
           >
           <span class="author-block"
-            ><a href="https://openreview.net/profile?id=~Jie_Zhou8">Jie Zhou</a
-            ><sup>1</sup></span
+            >Jing Li
+            <sup>4</sup></span
+          >
+          <span class="author-block"
+            >Jie Zhou
+            <sup>1</sup></span
           >
         </div>
         <div class="inst-list">
           <span class="institution-block"><sup>1</sup> WeChat AI</span>
           <span class="institution-block"><sup>2</sup> HKUST</span>
-          <span class="institution-block"><sup>3</sup> JHU</span>
+          <span class="institution-block"><sup>3</sup> CUHK</span>
+          <span class="institution-block"><sup>3</sup> NJIT</span>
         </div>
         <div class="note-block"><sup>=</sup> equal contribution</div>
       </div>
@@ -127,13 +137,14 @@
       <tr>
         <th rowspan="2">Rank</th>
         <th rowspan="2">Model</th>
-        <th>Dev</th>
-        <th colspan="2">Test</th>
+        <th colspan="3">Overall F1-Scores</th>
+        <th>F1-Scores on Subset</th>
       </tr>
       <tr>
-        <th>CORE-Dev</th>
-        <th>CORE-Test</th>
-        <th>ASSOC.</th>
+        <th>Macro-Avg</th>
+        <th>Consistent</th>
+        <th>Contradict</th>
+        <th>Public Set</th>
       </tr>
       <!-- ^ Human -->
       <tr class="human-row">
@@ -141,7 +152,7 @@
           <!-- <p>--</p> -->
           <!-- <p class="institution">WeChat AI</p> -->
           <p style="color: gray; font-size: smaller; font-style: italic">
-            Sorted by<br />Test Average
+            Sorted by<br />Macro-Avg
           </p>
         </td>
         <td>
@@ -151,301 +162,288 @@
             <a href="https://arxiv.org/abs/24xx.xxxxx"> (Yu et al., 2024) </a>
           </p> -->
         </td>
-        <td>92.0<span class="variance">±4.3</span></td>
-        <td>89.5<span class="variance">±5.1</span></td>
-        <td>77.8<span class="variance">±6.3</span></td>
+        <td>81.7*</td>
+        <td>79.5*</td>
+        <td>83.9*</td>
+        <td>-</td>
       </tr>
-      <!-- ^ [text] o3-mini-high -->
+      <!-- ^ [text] Gemini-2.5-Pro -->
       <tr>
         <td>
           <p>1</p>
-          <p class="institution">OpenAI</p>
+          <p class="institution">Google DeepMind</p>
         </td>
         <td style="word-break: break-word">
-          o3-mini (high)
-          <p class="model-id">o3-mini-2025-01-31 (high)</p>
-          <span class="tag text-tag">TEXT</span>
-          <span class="tag think-tag">THINK</span>
+          Gemini-2.5-Pro
+          <!-- <p class="model-id">Gemini-2.5-Pro</p> -->
+          <!-- <span class="tag text-tag">TEXT</span>
+          <span class="tag think-tag">THINK</span> -->
         </td>
-        <td>46.0</td>
-        <td><b>46.5</b></td>
-        <td>42.5</td>
+        <td><b>65.1</b></td>
+        <td>61.4</td>
+        <td><b>68.9</b></td>
+        <td>62.0</td>
       </tr>
-      <!-- ^ [mm] GPT-4o -->
+      <!-- ^ [mm] GPT-4o (+RAG) -->
       <tr>
         <td>
           <p>2</p>
           <p class="institution">OpenAI</p>
         </td>
         <td style="word-break: break-word">
-          GPT-4o
-          <p class="model-id">gpt-4o-2024-05-13</p>
-          <span class="tag vision-tag">MULTI-MODAL</span>
+          GPT-4o <br>
+          <!-- <p class="model-id">gpt-4o</p> -->
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span> -->
         </td>
-        <td>52.3<span class="variance">±0.8</span></td>
-        <td>45.2<span class="variance">±2.3</span></td>
-        <td>39.5<span class="variance">±1.1</span></td>
+        <td>62.9</td>
+        <td>61.2</td>
+        <td>64.6</td>
+        <td>63.2</td>
       </tr>
-      <!-- ^ [text] DeepSeek R1 -->
+      <!-- ^ [text] Gemini-2.5-Flash -->
       <tr>
         <td>
           <p>3</p>
-          <p class="institution">DeepSeek</p>
-        </td>
-        <td style="word-break: break-word">
-          DeepSeek R1
-          <p class="model-id">deepseek-reasoner</p>
-          <span class="tag text-tag">TEXT</span>
-          <span class="tag think-tag">THINK</span>
-          <span class="tag open-tag">OPEN</span>
-        </td>
-        <td>41.5</td>
-        <td>29.5</td>
-        <td><b>55.0</b></td>
-      </tr>
-      <!-- ^ [mm] gemini 2 fte -->
-      <tr>
-        <td>
-          <p>4</p>
           <p class="institution">Google DeepMind</p>
         </td>
         <td style="word-break: break-word">
-          Gemini-2.0 Flash Thinking
-          <p class="model-id">gemini-2.0-flash-thinking-exp</p>
-          <span class="tag vision-tag">MULTI-MODAL</span>
+          Gemini-2.5-Flash
+          <!-- <p class="model-id">Gemini-2.5-Flash</p> -->
+          <!-- <span class="tag text-tag">TEXT</span>
           <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span> -->
         </td>
-        <td>49.8<span class="variance">±0.8</span></td>
-        <td>43.2<span class="variance">±2.0</span></td>
-        <td>36.8<span class="variance">±3.1</span></td>
+        <td>61.8</td>
+        <td>62.4</td>
+        <td>61.1</td>
+        <td>59.6</td>
       </tr>
-      <!-- ^ [mm] o1-2024-12-17 -->
+      <!-- ^ [mm] DeepSeek -->
+      <tr>
+        <td>
+          <p>4</p>
+          <p class="institution">DeepSeek</p>
+        </td>
+        <td style="word-break: break-word">
+          DeepSeek-R1
+          <!-- <p class="model-id">gemini-2.0-flash-thinking-exp</p> -->
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>61.3</td>
+        <td>69.2</td>
+        <td>53.4</td>
+        <td><b>66.2</b></td>
+      </tr>
+      <!-- ^ [mm] Qwen3-32B (+RAG) -->
       <tr>
         <td>
           <p>5</p>
-          <p class="institution">OpenAI</p>
+          <p class="institution">Alibaba Cloud</p>
         </td>
         <td style="word-break: break-word">
-          o1
-          <p class="model-id">o1-2024-12-17</p>
+          Qwen3-32B
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <p class="model-id">o1-2024-12-17</p>
           <span class="tag vision-tag">MULTI-MODAL</span>
-          <span class="tag think-tag">THINK</span>
+          <span class="tag think-tag">THINK</span> -->
         </td>
-        <td><b>53.0</b></td>
-        <td>42.5</td>
-        <td>34.5</td>
+        <td>61.3</td>
+        <td>67.3</td>
+        <td>55.4</td>
+        <td><b>64.1</b></td>
       </tr>
-      <!-- ^ [text] o1 -->
-      <!-- <p class="model-id">o1-preview-2024-09-12</p> -->
-      <!-- <tr>
-        <td>
-          <p>--</p>
-          <p class="institution">OpenAI</p>
-        </td>
-        <td style="word-break: break-word">
-          o1<span
-            class="sup-note"
-            tabindex="0"
-            data-tooltip="Aborted due to unpromising preliminary results on the same subset. See details in the paper."
-            >*</span
-          >
-          <p class="model-id">o1-2024-12-17</p>
-          <span class="tag text-tag">TEXT</span>
-          <span class="tag think-tag">THINK</span>
-        </td>
-        <td>42.0</td>
-        <td><span class="variance">--</span></td>
-        <td><span class="variance">--</span></td>
-      </tr> -->
-      <!-- ^ [text] GPT-4o -->
+      <!-- ^ [text] Gemini-2.5-Pro (+RAG) -->
       <tr>
         <td>
           <p>6</p>
-          <p class="institution">OpenAI</p>
+          <p class="institution">Google DeepMind</p>
         </td>
         <td style="word-break: break-word">
-          GPT-4o
-          <p class="model-id">gpt-4o-2024-05-13</p>
-          <span class="tag text-tag">TEXT</span>
+          Gemini-2.5-Pro
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <p class="model-id">gpt-4o-2024-05-13</p>
+          <span class="tag text-tag">TEXT</span> -->
         </td>
-        <td>34.0<span class="variance">±2.9</span></td>
-        <td>31.3<span class="variance">±2.9</span></td>
-        <td>35.5<span class="variance">±2.5</span></td>
+        <td>60.7</td>
+        <td>53.7</td>
+        <td>67.8</td>
+        <td>59.9</td>
       </tr>
-      <!-- ^ [text] GPT-4 -->
+      <!-- ^ [mm] o3-mini (+RAG) -->
       <tr>
         <td>
           <p>7</p>
           <p class="institution">OpenAI</p>
         </td>
         <td style="word-break: break-word">
-          GPT-4
-          <p class="model-id">gpt-4-turbo-2024-04-09</p>
-          <span class="tag text-tag">TEXT</span>
+          o3-mini <br>
+          <!-- <p class="model-id">gpt-4o</p> -->
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span> -->
         </td>
-        <td>41.3<span class="variance">±1.3</span></td>
-        <td>28.2<span class="variance">±2.3</span></td>
-        <td>38.3<span class="variance">±1.2</span></td>
+        <td>60.0</td>
+        <td>67.0</td>
+        <td>53.0</td>
+        <td>64.0</td>
       </tr>
-      <!-- ^ [mm] GPT-4v -->
+      <!-- ^ [mm] Qwen3-235B-A22B (+RAG) -->
       <tr>
         <td>
           <p>8</p>
-          <p class="institution">OpenAI</p>
+          <p class="institution">Alibaba Cloud</p>
         </td>
         <td style="word-break: break-word">
-          GPT-4
-          <p class="model-id">gpt-4-turbo-2024-04-09</p>
+          Qwen3-235B-A22B
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <p class="model-id">o1-2024-12-17</p>
           <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
         </td>
-        <td>34.2<span class="variance">±1.6</span></td>
-        <td>28.7<span class="variance">±2.4</span></td>
-        <td>32.0<span class="variance">±1.5</span></td>
+        <td>59.7</td>
+        <td>59.7</td>
+        <td>59.7</td>
+        <td>60.7</td>
       </tr>
-      <!-- ^ GPT-3.5 -->
+      <!-- ^ [mm] DeepSeek (+RAG) -->
       <tr>
         <td>
           <p>9</p>
-          <p class="institution">OpenAI</p>
+          <p class="institution">DeepSeek</p>
         </td>
         <td style="word-break: break-word">
-          GPT-3.5
-          <p class="model-id">gpt-3.5-turbo-1106</p>
-          <span class="tag text-tag">TEXT</span>
+          DeepSeek-R1
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <p class="model-id">gemini-2.0-flash-thinking-exp</p> -->
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
         </td>
-        <td>26.5<span class="variance">±2.5</span></td>
-        <td>24.4<span class="variance">±0.8</span></td>
-        <td>30.0<span class="variance">±2.5</span></td>
+        <td>59.1</td>
+        <td>51.3</td>
+        <td>66.9</td>
+        <td><b>61.8</b></td>
       </tr>
-      <!-- ^ [mm] LLaVA -->
+      <!-- ^ [mm] GPT-4o -->
       <tr>
         <td>
           <p>10</p>
-          <p class="institution">UW Madison</p>
+          <p class="institution">OpenAI</p>
         </td>
         <td style="word-break: break-word">
-          LLaVA
-          <p class="model-id">
-            <a href="https://huggingface.co/liuhaotian/llava-v1.6-34b">
-              🤗 llava-v1.6-34b
-            </a>
-          </p>
-          <p class="model-source">
-            <a href="https://llava-vl.github.io/blog/2024-01-30-llava-next/"
-              >(Liu et al., 2024)</a
-            >
-          </p>
-          <span class="tag vision-tag">MULTI-MODAL</span>
-          <span>
-            <a
-              href="https://github.com/LLaVA-VL/LLaVA-NeXT"
-              class="tag open-tag"
-              >OPEN</a
-            >
-          </span>
+          GPT-4o <br>
+          <!-- <p class="model-id">gpt-4o</p> -->
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span> -->
         </td>
-        <td>26.2<span class="variance">±1.1</span></td>
-        <td>28.5<span class="variance">±1.5</span></td>
-        <td>24.7<span class="variance">±3.2</span></td>
+        <td><b>57.8</b></td>
+        <td>69.9</td>
+        <td>45.8</td>
+        <td>62.7</td>
       </tr>
-      <!-- ^ [mm] InternVL -->
+      <!-- ^ [text] Gemini-2.5-Flash (+RAG) -->
       <tr>
         <td>
           <p>11</p>
-          <p class="institution">Shanghai AI Lab</p>
+          <p class="institution">Google DeepMind</p>
         </td>
         <td style="word-break: break-word">
-          InternVL
-          <p class="model-id">
-            <a href="https://huggingface.co/OpenGVLab/InternVL-Chat-V1-5">
-              🤗 InternVL-Chat-V1-5
-            </a>
-          </p>
-          <p class="model-source">
-            <a href="https://arxiv.org/abs/2404.16821">(Chen et al., 2024)</a>
-          </p>
-          <span class="tag vision-tag">MULTI-MODAL</span>
-          <span>
-            <a href="https://github.com/OpenGVLab/InternVL" class="tag open-tag"
-              >OPEN</a
-            >
-          </span>
+          Gemini-2.5-Flash
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <p class="model-id">Gemini-2.5-Flash</p> -->
+          <!-- <span class="tag text-tag">TEXT</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span> -->
         </td>
-        <td>26.3<span class="variance">±1.6</span></td>
-        <td>26.9<span class="variance">±4.1</span></td>
-        <td>24.8<span class="variance">±1.3</span></td>
+        <td>57.8</td>
+        <td>48.9</td>
+        <td>66.8</td>
+        <td>52.0</td>
       </tr>
-      <!-- ^ Random -->
-      <tr class="random-row">
-        <td>
-          <p>--</p>
-        </td>
-        <td style="word-break: break-word">Random</td>
-        <td colspan="3">25</td>
-      </tr>
-      <!-- ^ Mistral -->
+      <!-- ^ [mm] Qwen3-235B-A22B -->
       <tr>
         <td>
           <p>12</p>
-          <p class="institution">Mistral AI</p>
+          <p class="institution">Alibaba Cloud</p>
         </td>
         <td style="word-break: break-word">
-          Mistral
-          <p class="model-id">
-            <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">
-              🤗 Mistral-7B-Instruct-v0.2
-            </a>
-          </p>
-          <p class="model-source">
-            <a href="https://arxiv.org/abs/2310.06825">
-              (Jiang et al., 2023)
-            </a>
-          </p>
-          <span class="tag text-tag">TEXT</span>
-          <span>
-            <a
-              href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2"
-              class="tag open-tag"
-              >OPEN</a
-            >
-          </span>
+          Qwen3-235B-A22B
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
         </td>
-        <td>21.5<span class="variance">±0.3</span></td>
-        <td>26.0<span class="variance">±1.4</span></td>
-        <td>23.2<span class="variance">±0.4</span></td>
+        <td>57.3</td>
+        <td><b>70.1</b></td>
+        <td>44.5</td>
+        <td>59.1</td>
       </tr>
-      <!-- ^ [text] Llama 3 -->
+      <!-- ^ [mm] Qwen2.5-72B (+RAG) -->
       <tr>
         <td>
           <p>13</p>
-          <p class="institution">Meta AI</p>
+          <p class="institution">Alibaba Cloud</p>
         </td>
         <td style="word-break: break-word">
-          LLaMA 3
-          <p class="model-id">
-            <a
-              href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct"
-            >
-              🤗 Meta-Llama-3-8B-Instruct
-            </a>
-          </p>
-          <p class="model-source">
-            <a href="https://ai.meta.com/blog/meta-llama-3/">
-              (Meta AI, 2024)
-            </a>
-          </p>
-          <span class="tag text-tag">TEXT</span>
-          <span>
-            <a
-              href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct"
-              class="tag open-tag"
-              >OPEN</a
-            >
-          </span>
+          Qwen2.5-72B
+          <span class="tag open-tag">with RAG top-40</span>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
         </td>
-        <td>23.5<span class="variance">±2.5</span></td>
-        <td>27.3<span class="variance">±0.6</span></td>
-        <td>21.7<span class="variance">±2.0</span></td>
+        <td>56.4</td>
+        <td>57.9</td>
+        <td>54.9</td>
+        <td>56.0</td>
+      </tr>
+      <!-- ^ [mm] Qwen2.5-72B -->
+      <tr>
+        <td>
+          <p>14</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen2.5-72B
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>55.7</td>
+        <td>66.4</td>
+        <td>45.0</td>
+        <td>59.7</td>
+      </tr>
+      <!-- ^ [mm] Qwen3-32B -->
+      <tr>
+        <td>
+          <p>15</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen3-32B
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>53.5</td>
+        <td>69.7</td>
+        <td>37.4</td>
+        <td>55.9</td>
+      </tr>
+      <!-- ^ [mm] o3-mini -->
+      <tr>
+        <td>
+          <p>16</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          o3-mini
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>53.5</td>
+        <td>68.8</td>
+        <td>38.2</td>
+        <td>56.4</td>
       </tr>
     </table>
   </body>
