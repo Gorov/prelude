@@ -132,6 +132,324 @@
       </div>
     </div>
 
+	    <table class="table performanceTable">
+      <!-- Header -->
+      <tr>
+        <th rowspan="2">Rank</th>
+        <th rowspan="2">Model</th>
+        <th colspan="3">Overall F1-Scores on Human Study Set</th>
+      </tr>
+      <tr>
+        <th>Macro-Avg</th>
+        <th>Consistent</th>
+        <th>Contradict</th>
+      </tr>
+      <!-- ^ Human -->
+      <tr class="human-row">
+        <td>
+          <!-- <p>--</p> -->
+          <!-- <p class="institution">WeChat AI</p> -->
+          <p style="color: gray; font-size: smaller; font-style: italic">
+            Sorted by<br />Macro-Avg
+          </p>
+        </td>
+        <td>
+          Human
+          <!-- Performance -->
+          <!-- <p class="model-source">
+            <a href="https://arxiv.org/abs/24xx.xxxxx"> (Yu et al., 2024) </a>
+          </p> -->
+        </td>
+        <td>81.7</td>
+        <td>79.5</td>
+        <td>83.9</td>
+      </tr>
+      <!-- ^ [text] Gemini-2.5-Pro -->
+      <tr>
+        <td>
+          <p>1</p>
+          <p class="institution">Google DeepMind</p>
+        </td>
+        <td style="word-break: break-word">
+          Gemini-2.5-Pro<br>
+          <!-- <p class="model-id">Gemini-2.5-Pro</p> -->
+          <!-- <span class="tag text-tag">TEXT</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag think-tag">THINK</span>
+        </td>
+        <td><b>65.1</b></td>
+        <td>61.4</td>
+        <td><b>68.9</b></td>
+      </tr>
+      <!-- ^ [mm] GPT-4o (+RAG) -->
+      <tr>
+        <td>
+          <p>2</p>
+          <p class="institution">OpenAI</p>
+        </td>
+        <td style="word-break: break-word">
+          GPT-4o <br>
+          <!-- <p class="model-id">gpt-4o</p> -->
+          <span class="tag rag-tag">RAG</span>
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span> -->
+        </td>
+        <td>62.9</td>
+        <td>61.2</td>
+        <td>64.6</td>
+      </tr>
+      <!-- ^ [text] Gemini-2.5-Flash -->
+      <tr>
+        <td>
+          <p>3</p>
+          <p class="institution">Google DeepMind</p>
+        </td>
+        <td style="word-break: break-word">
+          Gemini-2.5-Flash<br>
+          <!-- <p class="model-id">Gemini-2.5-Flash</p> -->
+          <!-- <span class="tag text-tag">TEXT</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span> -->
+          <span class="tag think-tag">THINK</span>
+        </td>
+        <td>61.8</td>
+        <td>62.4</td>
+        <td>61.1</td>
+      </tr>
+      <!-- ^ [mm] DeepSeek -->
+      <tr>
+        <td>
+          <p>4</p>
+          <p class="institution">DeepSeek</p>
+        </td>
+        <td style="word-break: break-word">
+          DeepSeek-R1<br>
+          <!-- <p class="model-id">gemini-2.0-flash-thinking-exp</p> -->
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+        </td>
+        <td>61.3</td>
+        <td>69.2</td>
+        <td>53.4</td>
+      </tr>
+      <!-- ^ [mm] Qwen3-32B (+RAG) -->
+      <tr>
+        <td>
+          <p>5</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen3-32B (+RAG top-40) <br>
+          <span class="tag rag-tag">RAG</span>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+        </td>
+        <td>61.3</td>
+        <td>67.3</td>
+        <td>55.4</td>
+      </tr>
+      <!-- ^ [text] Gemini-2.5-Pro (+RAG) -->
+      <tr>
+        <td>
+          <p>6</p>
+          <p class="institution">Google DeepMind</p>
+        </td>
+        <td style="word-break: break-word">
+          Gemini-2.5-Pro (+RAG top-40) <br>
+          <span class="tag rag-tag">RAG</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+          <!-- <p class="model-id">gpt-4o-2024-05-13</p>
+          <span class="tag text-tag">TEXT</span> -->
+        </td>
+        <td>60.7</td>
+        <td>53.7</td>
+        <td>67.8</td>
+      </tr>
+      <!-- ^ [mm] o3-mini (+RAG) -->
+      <tr>
+        <td>
+          <p>7</p>
+          <p class="institution">OpenAI</p>
+        </td>
+        <td style="word-break: break-word">
+          o3-mini (+RAG top-40) <br>
+          <!-- <p class="model-id">gpt-4o</p> -->
+          <span class="tag rag-tag">RAG</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span> -->
+        </td>
+        <td>60.0</td>
+        <td>67.0</td>
+        <td>53.0</td>
+      </tr>
+      <!-- ^ [mm] Qwen3-235B-A22B (+RAG) -->
+      <tr>
+        <td>
+          <p>8</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen3-235B-A22B (+RAG top-40) <br>
+          <span class="tag rag-tag">RAG</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>59.7</td>
+        <td>59.7</td>
+        <td>59.7</td>
+      </tr>
+      <!-- ^ [mm] DeepSeek (+RAG) -->
+      <tr>
+        <td>
+          <p>9</p>
+          <p class="institution">DeepSeek</p>
+        </td>
+        <td style="word-break: break-word">
+          DeepSeek-R1 (+RAG top-40) <br>
+          <span class="tag rag-tag">RAG</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+          <!-- <p class="model-id">gemini-2.0-flash-thinking-exp</p> -->
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>59.1</td>
+        <td>51.3</td>
+        <td>66.9</td>
+      </tr>
+      <!-- ^ [mm] GPT-4o -->
+      <tr>
+        <td>
+          <p>10</p>
+          <p class="institution">OpenAI</p>
+        </td>
+        <td style="word-break: break-word">
+          GPT-4o <br>
+          <!-- <p class="model-id">gpt-4o</p> -->
+          <!-- <span class="tag vision-tag">MULTI-MODAL</span> -->
+        </td>
+        <td>57.8</td>
+        <td>69.9</td>
+        <td>45.8</td>
+      </tr>
+      <!-- ^ [text] Gemini-2.5-Flash (+RAG) -->
+      <tr>
+        <td>
+          <p>11</p>
+          <p class="institution">Google DeepMind</p>
+        </td>
+        <td style="word-break: break-word">
+          Gemini-2.5-Flash (+RAG top-40) <br>
+          <span class="tag rag-tag">RAG</span>
+          <span class="tag think-tag">THINK</span>
+          <!-- <p class="model-id">Gemini-2.5-Flash</p> -->
+          <!-- <span class="tag text-tag">TEXT</span>
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span> -->
+        </td>
+        <td>57.8</td>
+        <td>48.9</td>
+        <td>66.8</td>
+      </tr>
+      <!-- ^ [mm] Qwen3-235B-A22B -->
+      <tr>
+        <td>
+          <p>12</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen3-235B-A22B <br>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+        </td>
+        <td>57.3</td>
+        <td><b>70.1</b></td>
+        <td>44.5</td>
+      </tr>
+      <!-- ^ [mm] Qwen2.5-72B (+RAG) -->
+      <tr>
+        <td>
+          <p>13</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen2.5-72B (+RAG top-40) <br>
+          <span class="tag rag-tag">RAG</span>
+          <span class="tag open-tag">OPEN</span>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+        </td>
+        <td>56.4</td>
+        <td>57.9</td>
+        <td>54.9</td>
+      </tr>
+      <!-- ^ [mm] Qwen2.5-72B -->
+      <tr>
+        <td>
+          <p>14</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen2.5-72B <br>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag open-tag">OPEN</span>
+        </td>
+        <td>55.7</td>
+        <td>66.4</td>
+        <td>45.0</td>
+      </tr>
+      <!-- ^ [mm] Qwen3-32B -->
+      <tr>
+        <td>
+          <p>15</p>
+          <p class="institution">Alibaba Cloud</p>
+        </td>
+        <td style="word-break: break-word">
+          Qwen3-32B <br>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag think-tag">THINK</span>
+          <span class="tag open-tag">OPEN</span>
+        </td>
+        <td>53.5</td>
+        <td>69.7</td>
+        <td>37.4</td>
+      </tr>
+      <!-- ^ [mm] o3-mini -->
+      <tr>
+        <td>
+          <p>16</p>
+          <p class="institution">OpenAI</p>
+        </td>
+        <td style="word-break: break-word">
+          o3-mini <br>
+          <!-- <p class="model-id">o1-2024-12-17</p>
+          <span class="tag vision-tag">MULTI-MODAL</span>
+          <span class="tag think-tag">THINK</span> -->
+          <span class="tag think-tag">THINK</span>
+        </td>
+        <td>53.5</td>
+        <td>68.8</td>
+        <td>38.2</td>
+      </tr>
+    </table>
+	  
     <table class="table performanceTable">
       <!-- Header -->
       <tr>
