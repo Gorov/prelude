@@ -103,11 +103,11 @@
   white-space: nowrap;
 }
 
-.table .text-tag {
+.table .train-tag {
   background-color: #4caf50;
 }
 
-.table .vision-tag {
+.table .rag-tag {
   background-color: #ff9800;
 }
 
