@@ -132,7 +132,12 @@
       </div>
     </div>
 
-	    <table class="table performanceTable">
+	<div class="btn-group">
+	  <button onclick="showTable('table1')">Human Study Set</button>
+	  <button onclick="showTable('table2')">Full Set</button>
+	</div>
+
+	<table id="table1" class="table performanceTable">
       <!-- Header -->
       <tr>
         <th rowspan="2">Rank</th>
@@ -350,7 +355,7 @@
       </tr>
     </table>
 	  
-    <table class="table performanceTable">
+    <table id="table2" class="table performanceTable hidden">
       <!-- Header -->
       <tr>
         <th rowspan="2">Rank</th>
@@ -686,5 +691,14 @@
         <td>56.4</td>
       </tr>
     </table>
+
+	<script>
+	  function showTable(tableId) {
+	    // 隐藏所有表格
+	    document.querySelectorAll('.performanceTable').forEach(t => t.classList.add('hidden'));
+	    // 显示选中的表格
+	    document.getElementById(tableId).classList.remove('hidden');
+	  }
+	</script>
   </body>
 </html>
