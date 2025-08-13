@@ -1,34 +1,45 @@
 /* Basic table styling */
 .table {
-  width: 80%;
+  width: 95%;
   border-collapse: collapse;
-  margin: 20px auto;
+  margin: 25px auto;
   font-size: 16px;
-  text-align: center;
+  text-align: left;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* Header styling */
 .table th {
-  /* background-color: #f2f2f2; */
-  color: #333;
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
+  background-color: #f8f9fa;
+  color: #495057;
+  padding: 15px 20px;
+  border-bottom: 2px solid #dee2e6;
+  text-align: left;
 }
 
 /* Row styling */
 .table td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  color: #212529;
+}
+
+/* Zebra striping for better readability */
+.table tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
 }
 
 /* Human performance row styling */
 .human-row {
-  background-color: #eee;
+  background-color: #e9ecef;
+  font-weight: 500;
 }
 
-.human-row .institution {
+.human-row .institution, .table .institution {
   font-size: 14px;
-  color: #777;
+  color: #6c757d;
   margin: 5px 0;
 }
 
@@ -42,7 +53,7 @@
 }
 
 .random-row {
-  background-color: #eee;
+  background-color: #f8f9fa;
 }
 
 /* Model row styling */
@@ -60,8 +71,8 @@
 
 .table .model-id {
   font-size: 12px;
-  font-family: monospace;
-  color: #888;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  color: #6c757d;
   margin: 5px 0;
 }
 
@@ -87,37 +98,43 @@
 
 /* Bold text for performance metrics */
 .table td b {
-  font-weight: bold;
+  font-weight: 600;
+  color: #000;
 }
 
 /* Tag styling */
 .table .tag {
   display: inline-block;
-  padding: 2px 8px;
-  margin: 2px 0px;
+  padding: 4px 12px;
+  margin: 2px 2px;
   color: white;
-  border-radius: 12px; /* Rounded corners */
-  font-size: 12px; /* Adjust the font size as needed */
-  font-weight: bold;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 600;
   text-align: center;
   white-space: nowrap;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .table .train-tag {
-  background-color: #4caf50;
+  background-color: #28a745;
+  color: #fff;
 }
 
 .table .rag-tag {
-  background-color: #ff9800;
+  background-color: #fd7e14;
+  color: #fff;
 }
 
 .table .open-tag {
-  background-color: #2196f3;
-  /* background-color: #1367a7; */
+  background-color: #17a2b8;
+  color: #fff;
 }
 
 .table .think-tag {
-  background-color: #9c27b0;
+  background-color: #6f42c1;
+  color: #fff;
 }
 
 .sup-note {

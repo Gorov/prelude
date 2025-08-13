@@ -8,29 +8,29 @@
 	  .btn-group {
 	    display: flex;
 	    justify-content: center; /* 水平居中 */
-	    gap: 15px; /* 按钮间距 */
-	    margin-bottom: 15px;
+	    margin-bottom: -1px; /* 向上移动1px，与表格边框重合 */
 	  }
 	  .btn-group button {
-	    padding: 12px 24px;  /* 按钮更大 */
-	    cursor: pointer;
-	    border: 1px solid #ccc;
-	    background: white;
-		color: black;
-	    border-radius: 10px;  /* 圆角更大 */
-	    font-size: 20px;      /* 字体更大 */
-	    font-weight: bold;    /* 字体加粗 */
-	    transition: all 0.3s ease;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: #f0f0f0; 
+      color: #333; 
+      border-radius: 5px 5px 0 0; 
+      margin: 0 -1px 0 0; 
+      font-size: 18px;
+      font-weight: bold;
+      position: relative; 
+      z-index: 1; 
 	  }
 	  .btn-group button.active {
-	    background: linear-gradient(135deg, #1e90ff, #0066cc);
-	    color: white;
-	    border: none;
-	    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background: white; 
+      color: #007bff; 
+      border-bottom: 1px solid white; 
+      z-index: 2; 
 	  }
-		/* 鼠标悬停效果 */
-	  .btn-group button:hover:not(.active) {
-	    background: linear-gradient(135deg, #f0f8ff, #dbefff);
+	  .btn-group button:not(.active):hover {
+		  background: #e0e0e0; 
 	  }
 	</style>
     <link
@@ -163,8 +163,8 @@
     </div>
 
 	<div class="btn-group">
-	  <button onclick="showTable('table1')">Human Study Set</button>
-	  <button onclick="showTable('table2')">Full Set</button>
+	  <button class="active" onclick="showTable('table1', this)">Human Study Set</button>
+	  <button onclick="showTable('table2', this)">Full Set</button>
 	</div>
 
 	<table id="table1" class="table performanceTable">
@@ -723,12 +723,15 @@
     </table>
 
 	<script>
-	  function showTable(tableId) {
-	    // 隐藏所有表格
+	  function showTable(tableId, button) {
 	    document.querySelectorAll('.performanceTable').forEach(t => t.classList.add('hidden'));
-	    // 显示选中的表格
 	    document.getElementById(tableId).classList.remove('hidden');
+      document.querySelectorAll('.btn-group button').forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
 	  }
+	  document.addEventListener('DOMContentLoaded', function() {
+		  showTable('table1', document.querySelector('.btn-group button'));
+	  });
 	</script>
   </body>
 </html>
